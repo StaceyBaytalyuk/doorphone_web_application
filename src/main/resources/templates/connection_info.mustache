@@ -1,0 +1,59 @@
+<html>
+<body>
+
+<form method="get" action="connections">
+    <input type="submit" value="Назад">
+</form>
+<div><b>Заявка на подключение/отключение</b></div>
+{{#connection}}
+    <form method="post" action="editConnection">
+        <div>
+            <b>ID</b>
+            <input type='number' name='id' value={{id}} readonly/>
+        </div>
+
+        <div>
+            <b>ID клиента</b>
+            <input type='number' name='clientID' value={{client.id}} readonly/>
+        </div>
+
+        <div>
+            <b>ID мастера</b>
+            <input type='number' name='masterID' value={{master.id}} readonly/>
+        </div>
+
+        <b>Тип (подкл/откл)</b>
+        <span><input type="text" name="type" value="{{type}}" readonly/></span>
+        <!--<select id="type" name="type">
+            <option selected="{{type}}">{{type}}</option>
+            <option value="true">true</option>
+            <option value="false">false</option>
+        </select>-->
+
+        <div>
+            <b>Статус</b>
+            <select id="status" name="status">
+                <option selected="{{status}}">{{status}}</option>
+                <option value="создано">создано</option>
+                <option value="отмена">отмена</option>
+                <option value="выполнено">выполнено</option>
+            </select>
+        </div>
+
+        <div>
+            <b>Дата создания</b>
+            <span><input type="text" name="dateCreate" value="{{dateCreate}}" readonly/></span>
+        </div>
+
+        <div>
+            <b>Дата выполнения</b>
+            <span><input type="text" name="dateComplete" placeholder="дд-мм-гггг"/></span>
+        </div>
+
+        <button type="submit">Сохранить изменения</button>
+    </form>
+
+{{/connection}}
+
+</body>
+</html>

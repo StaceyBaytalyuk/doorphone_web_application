@@ -1,0 +1,63 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuMaterial">
+    <input type="submit" value="Назад">
+</form>
+<b>Закупка материалов</b>
+<div>
+    <form method="post" action="addBuy">
+        <button type="submit">Добавить</button>
+        <input type="number" name="masterID" placeholder="id мастера"/>
+        <input type="number" name="materialID" placeholder="id материала"/>
+        <input type="number" name="amount" placeholder="Кол-во"/>
+        <input type="number" name="price" placeholder="Цена"/>
+        <input type="text" name="dateString" placeholder="Дата"/>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="deleteBuy">
+        <button type="submit">Удалить</button>
+        <input type="number" name="id" placeholder="id"/>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список закупок материалов</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Дата</th>
+        <th>Материал</th>
+        <th>Кол-во</th>
+        <th>Цена</th>
+        <th>Ответственный за закупку</th>
+    </tr>
+    {{#buy}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{date}}</td>
+            <td>{{material.name}}</td>
+            <td>{{amount}}</td>
+            <td>{{price}}</td>
+            <td>{{master.name}}</td>
+            <!--<td><math>{{price}}*{{amount}}</math></td>-->
+        </tr>
+    {{/buy}}
+</table>
+</body>
+</html>

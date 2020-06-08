@@ -1,0 +1,61 @@
+<html>
+<body>
+<form method="get" action="clients">
+    <button type="submit">Назад</button>
+</form>
+<div><b>Добавить нового клиента</b></div>
+
+<div>
+    <form method="get" action="registerClient">
+        <table>
+            <tr>
+                <th>ФИО</th>
+                <th><input type="text" name="name"/></th>
+            </tr>
+
+            <tr>
+                <th>Телефон</th>
+                <th><input type="text" name="phone"/></th>
+            </tr>
+
+            <tr>
+                <th>Тип переговорного устройства</th>
+                <th>
+                    <select id="deviceType" name="deviceType">
+                        <option value="A-1">A-1</option>
+                        <option value="A-2">A-2</option>
+                        <option value="V-1">V-1</option>
+                        <option value="V-2">V-2</option>
+                    </select>
+                </th>
+            </tr>
+
+            <tr>
+                <th>Адрес</th>
+                <th><input type="text" name="streetName" placeholder="Улица"/></th>
+                <th><input type="number" name="house" placeholder="Дом"/></th>
+                <th><input type="number" name="entrance" placeholder="Подъезд"/></th>
+                <th><input type="number" name="apartment" placeholder="Квартира"/></th>
+            </tr>
+
+            <tr>
+                <th>Тариф</th>
+                <th><input type="number" name="tariffID" placeholder="id тарифа"/></th>
+            </tr>
+
+            <tr>
+                <th>Мастер</th>
+                <th><input type="number" name="masterID" placeholder="id мастера"/></th>
+            </tr>
+
+            <tr>
+                <th>Дата заключения договора</th>
+                <th><input type="text" name="contractDate" placeholder="дд-мм-гггг"/></th>
+            </tr>
+        </table>
+        <button type="submit">Добавить клиента</button>
+    </form>
+</div>
+
+</body>
+</html>

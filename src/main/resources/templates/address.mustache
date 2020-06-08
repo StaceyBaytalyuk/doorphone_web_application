@@ -1,0 +1,42 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuClients">
+    <button type="submit">Назад</button>
+</form>
+
+<form method="post" action="editStreet">
+    <button type="submit">Переименовать улицу</button>
+    <input type="number" name="id" placeholder="id"/>
+    <input type="text" name="name" placeholder="Новое имя"/>
+</form>
+<b>Адреса</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Улица</th>
+        <th>Дом</th>
+        <th>Подъезд</th>
+    </tr>
+    {{#address}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{street.name}}</td>
+            <td>{{house}}</td>
+            <td>{{entrance}}</td>
+            <!-- todo поиск всех квартир в этом подъезде -->
+        </tr>
+    {{/address}}
+</table>
+</body>
+</html>

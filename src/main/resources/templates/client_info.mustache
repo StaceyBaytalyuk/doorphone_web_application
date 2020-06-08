@@ -1,0 +1,81 @@
+<html>
+<body>
+<form method="get" action="clients">
+    <input type="submit" value="Назад">
+</form>
+<div><b>Клиент</b></div>
+{{#client}}
+    <form method="post" action="editClient">
+        <div>
+            <b>ID</b>
+            <input type='number' name='clientID' value={{id}} readonly/>
+        </div>
+
+        <div>
+            <b>ФИО</b>
+            <span><input type="text" name="name" value="{{name}}"/></span>
+        </div>
+
+        <div>
+            <b>Телефон</b>
+            <span><input type="text" name="phone" value="{{phone}}"/></span>
+        </div>
+
+        <div>
+            <b>Баланс</b>
+            <input type='text' name='balance' value="{{balance}} грн" readonly/>
+        </div>
+
+        <div>
+            <b>Подключён</b>
+            <select id="statusString" name="statusString">
+                <option selected="{{status}}">{{status}}</option>
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+        </div>
+
+        <div>
+            <b>Тип переговорного устройства</b>
+            <span>
+            <select id="deviceType" name="deviceType">
+                <option selected="{{deviceType}}">{{deviceType}}</option>
+                <option value="A-1">A-1</option>
+                <option value="A-2">A-2</option>
+                <option value="V-1">V-1</option>
+                <option value="V-2">V-2</option>
+            </select>
+        </span>
+        </div>
+
+        <div>
+            <b>Адрес</b>
+            <span> ул. </span>
+            <span><input type="text" name="streetName" value="{{address.street.name}}"/></span>
+            <span> дом </span>
+            <span><input type="number" name="house" value="{{address.house}}"/></span>
+            <span> подъезд </span>
+            <span><input type="number" name="entrance" value="{{address.entrance}}"/></span>
+            <span> кв. </span>
+            <span><input type="number" name="apartment" value="{{apartment}}"/></span>
+        </div>
+
+        <div>
+            <b>Тариф</b>
+            <span><input type="number" name="tariffID" value="{{tariff.id}}"/></span>
+        </div>
+
+        <div>
+            <b>Мастер</b>
+            <span><input type="number" name="masterID" value="{{master.id}}"/></span>
+        </div>
+
+        <div>
+            <b>Дата заключения договора</b>
+            <span><input type="text" name="contractDate" value="{{contractDate}}"/></span>
+        </div>
+        <button type="submit">Сохранить изменения</button>
+    </form>
+{{/client}}
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="mainMenu">
+    <button type="submit">Назад</button>
+</form>
+<b>Мастеры</b>
+<div>
+    <form method="post" action="addMaster">
+        <button type="submit">Добавить мастера</button>
+        <input type="text" name="name" placeholder="ФИО"/>
+        <input type="text" name="phone" placeholder="Телефон"/>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="deleteMaster">
+        <button type="submit">Удалить мастера</button>
+        <input type="number" name="id" placeholder="id"/>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="editMaster">
+        <button type="submit">Редактировать информацию о мастере</button>
+        <input type="number" name="id" placeholder="id"/>
+        <input type="text" name="name" placeholder="ФИО"/>
+        <input type="text" name="phone" placeholder="Телефон"/>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список мастеров</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+        <th>Активен</th>
+    </tr>
+    {{#masters}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{phone}}</td>
+            <td>{{status}}</td>
+        </tr>
+    {{/masters}}
+</table>
+</body>
+</html>

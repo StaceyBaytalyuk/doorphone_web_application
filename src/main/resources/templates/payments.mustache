@@ -1,0 +1,56 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuFinance">
+    <input type="submit" value="Назад">
+</form>
+<b>Платежи</b>
+<div>
+    <form method="post" action="addPayment">
+        <button type="submit">Добавить платёж</button>
+        <input type="number" name="clientID" placeholder="id клиента"/>
+        <input type="number" name="sum" placeholder="Сумма"/>
+        <input type="text" name="dateString" placeholder="дд-мм-гггг"/>
+
+        <select id="methodString" name="methodString">
+            <option value="касса">касса</option>
+            <option value="банк">банк</option>
+        </select>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список начислений</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Сумма</th>
+        <th>Способ оплаты</th>
+        <th>Дата</th>
+        <th>ID клиента</th>
+    </tr>
+    {{#payments}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{sum}}</td>
+            <td>{{method}}</td>
+            <td>{{date}}</td>
+            <td>{{client.id}}</td>
+        </tr>
+    {{/payments}}
+</table>
+</body>
+</html>

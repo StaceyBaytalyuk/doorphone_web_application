@@ -1,0 +1,54 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuMaterial">
+    <input type="submit" value="Назад">
+</form>
+<b>Склад</b>
+<div>
+    <form method="post" action="addMaterial">
+        <button type="submit">Добавить новый вид материалов</button>
+        <input type="text" name="name" placeholder="Название"/>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="editMaterial">
+        <button type="submit">Редактировать информацию о материале</button>
+        <input type="number" name="id" placeholder="id"/>
+        <input type="text" name="name" placeholder="Название"/>
+        <input type="text" name="amount" placeholder="Кол-во"/>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список материалов в наличии на складе</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Кол-во</th>
+    </tr>
+    {{#materials}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{amount}}</td>
+        </tr>
+    {{/materials}}
+</table>
+</body>
+</html>

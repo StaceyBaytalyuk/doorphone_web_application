@@ -1,0 +1,55 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<b>Клиенты</b>
+<form method="get" action="menuClients">
+    <button type="submit">Назад</button>
+</form>
+<div>
+    <form method="get" action="addClient">
+        <button type="submit">Добавить клиента</button>
+    </form>
+</div>
+
+<div>
+    <form method="get" action="searchClients">
+        <button type="submit">Поиск</button>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список клиентов</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>ФИО</th>
+        <th>Полная информация о клиенте</th>
+    </tr>
+    {{#clients}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>
+                <form method="get" action="infoClient">
+                <button type="submit">info</button>
+                <input type='hidden' name='id' value={{id}} />
+                </form>
+            </td>
+        </tr>
+    {{/clients}}
+</table>
+</body>
+</html>

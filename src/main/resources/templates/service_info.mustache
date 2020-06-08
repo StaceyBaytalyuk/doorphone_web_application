@@ -1,0 +1,63 @@
+<html>
+<body>
+
+<form method="get" action="services">
+    <input type="submit" value="Назад">
+</form>
+
+<div></div>
+<div><b>Ремонт</b></div>
+{{#service}}
+    <form method="post" action="editService">
+        <div>
+            <b>ID</b>
+            <input type='number' name='serviceID' value={{id}} readonly/>
+        </div>
+
+        <div>
+            <b>ID клиента</b>
+            <input type='number' name='clientID' value={{client.id}} readonly/>
+        </div>
+
+        <div>
+            <b>ID мастера</b>
+            <input type='number' name='masterID' value={{master.id}} readonly/>
+        </div>
+
+        <div>
+            <b>Комментарий клиента</b>
+            <span><input type="text" name="commentClient" value="{{commentClient}}"/></span>
+        </div>
+
+        <div>
+            <b>Комментарий мастера</b>
+            <span><input type="text" name="commentMaster" value="{{commentMaster}}"/></span>
+        </div>
+
+        <div>
+            <b>Статус</b>
+            <select id="status" name="status">
+                <option selected="{{status}}">{{status}}</option>
+                <option value="создано">создано</option>
+                <option value="отмена">отмена</option>
+                <option value="выполнено">выполнено</option>
+            </select>
+        </div>
+
+        <div>
+            <b>Дата создания</b>
+            <span><input type="text" name="dateCreate" value="{{dateCreate}}" readonly/></span>
+        </div>
+
+        <div>
+            <b>Дата выполнения</b>
+            <span><input type="text" name="dateComplete"/></span>
+        </div>
+
+        <button type="submit">Сохранить изменения</button>
+    </form>
+
+{{/service}}
+
+</body>
+</html>

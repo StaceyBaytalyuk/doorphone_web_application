@@ -1,0 +1,50 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuFinance">
+    <input type="submit" value="Назад">
+</form>
+<b>Тарифы</b>
+<div>
+    <form method="post" action="addTariff">
+        <button type="submit">Добавить тариф</button>
+        <input type="text" name="name" placeholder="Название"/>
+        <input type="number" name="price" placeholder="Стоимость"/>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="editTariff">
+        <button type="submit">Изменить тариф</button>
+        <input type="number" name="id" placeholder="id тарифа"/>
+        <input type="number" name="price" placeholder="Новая стоимость"/>
+    </form>
+</div>
+
+<b>Список тарифов</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Стоимость</th>
+    </tr>
+    {{#tariffs}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+        </tr>
+    {{/tariffs}}
+</table>
+</body>
+</html>

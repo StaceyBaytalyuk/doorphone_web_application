@@ -1,0 +1,87 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="clients">
+    <button type="submit">Назад</button>
+</form>
+
+<b>Поиск клиентов</b>
+<div>
+    <form method="post" action="searchClientById">
+        <button type="submit">по id</button>
+        <span><input type="number" name="id" placeholder="id клиента"/></span>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="searchClientsByName">
+        <button type="submit">по имени</button>
+        <span><input type="text" name="name" placeholder="ФИО"/></span>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="searchClientsByPhone">
+        <button type="submit">по телефону</button>
+        <span><input type="text" name="phone" placeholder="Телефон"/></span>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="searchClientsByAddress">
+        <button type="submit">по адресу</button>
+        <span><input type="text" name="streetName" placeholder="ул."/></span>
+        <span><input type="number" name="house" placeholder="дом"/></span>
+        <span><input type="number" name="entrance" placeholder="подъезд"/></span>
+        <span><input type="number" name="apartment" placeholder="кв."/></span>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="debtors">
+        <button type="submit">Должники</button>
+        <span><input type="number" name="addressID" placeholder="id подъезда"/></span>
+    </form>
+</div>
+
+{{#message}}
+    <b>{{message}}</b>
+{{/message}}
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>ФИО</th>
+        <th>Телефон</th>
+        <th>Адрес</th>
+        <th>Баланс</th>
+        <th>Полная информация о клиенте</th>
+    </tr>
+    {{#clients}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{phone}}</td>
+            <td>{{address.street.name}} {{address.house}}, {{address.entrance}} подъезд, кв. {{apartment}}</td>
+            <td>{{balance}}</td>
+            <td>
+                <form method="get" action="infoClient">
+                <button type="submit">info</button>
+                <input type='hidden' name='id' value={{id}} />
+                </form>
+            </td>
+        </tr>
+    {{/clients}}
+</table>
+</body>
+</html>

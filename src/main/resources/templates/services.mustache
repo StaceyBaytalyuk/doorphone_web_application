@@ -1,0 +1,56 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuRequests">
+    <input type="submit" value="Назад">
+</form>
+<b>Ремонты</b>
+<div>
+    <form method="post" action="addService">
+        <button type="submit">Добавить заявку</button>
+        <input type="number" name="clientID" placeholder="id клиента"/>
+        <input type="text" name="commentClient" placeholder="Комментарий клиента"/>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список заявок на ремонт</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Статус</th>
+        <th>Дата создания</th>
+        <th>ID клиента</th>
+        <th>Полная информация</th>
+    </tr>
+    {{#services}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{status}}</td>
+            <td>{{dateCreate}}</td>
+            <td>{{client.id}}</td>
+
+            <td>
+                <form method="get" action="infoService">
+                <button type="submit">info</button>
+                <input type='hidden' name='id' value={{id}} />
+                </form>
+            </td>
+        </tr>
+    {{/services}}
+</table>
+</body>
+</html>

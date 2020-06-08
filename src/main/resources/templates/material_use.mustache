@@ -1,0 +1,64 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuMaterial">
+    <input type="submit" value="Назад">
+</form>
+<b>Использование материалов</b>
+<div>
+    <form method="post" action="addUse">
+        <button type="submit">Добавить</button>
+        <input type="number" name="serviceID" placeholder="id заявки"/>
+        <input type="number" name="materialID" placeholder="id материала"/>
+        <input type="number" name="amount" placeholder="кол-во"/>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="editUse">
+        <button type="submit">Редактировать информацию</button>
+        <input type="number" name="id" placeholder="id"/>
+        <input type="text" name="amount" placeholder="Кол-во"/>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="deleteUse">
+        <button type="submit">Удалить</button>
+        <input type="number" name="id" placeholder="id"/>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список использованных материалов</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Материал</th>
+        <th>Кол-во</th>
+        <th>Назначение (ID заявки)</th>
+    </tr>
+    {{#use}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{material.name}}</td>
+            <td>{{amount}}</td>
+            <td>{{service.id}}</td>
+        </tr>
+    {{/use}}
+</table>
+</body>
+</html>

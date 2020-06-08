@@ -1,0 +1,63 @@
+<html>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, td, th {
+        border: 2px solid #999;
+        padding: 5px;
+    }
+</style>
+
+<body>
+<form method="get" action="menuRequests">
+    <input type="submit" value="Назад">
+</form>
+
+<b>Заявки на подключение/отключение</b>
+<div>
+    <form method="post" action="addConnection">
+        <button type="submit">Добавить заявку</button>
+        <input type="number" name="clientID" placeholder="id клиента"/>
+        <span> Тип</span>
+        <select id="typeString" name="typeString">
+            <option value="подкл">подкл</option>
+            <option value="откл">откл</option>
+        </select>
+    </form>
+</div>
+
+{{#message}}
+    <div><span>{{message}}</span></div>
+{{/message}}
+
+<b>Список заявок</b>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Тип</th>
+        <th>Статус</th>
+        <th>Дата создания</th>
+        <th>ID клиента</th>
+        <th>Полная информация</th>
+    </tr>
+    {{#connections}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{type}}</td>
+            <td>{{status}}</td>
+            <td>{{dateCreate}}</td>
+            <td>{{client.id}}</td>
+
+            <td>
+                <form method="get" action="infoConnection">
+                <button type="submit">info</button>
+                <input type='hidden' name='id' value={{id}} />
+                </form>
+            </td>
+        </tr>
+    {{/connections}}
+</table>
+</body>
+</html>
