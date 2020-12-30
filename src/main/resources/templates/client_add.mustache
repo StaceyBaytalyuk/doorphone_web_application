@@ -1,61 +1,58 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Новый клиент</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="styles/css/all.css" rel="stylesheet">
+</head>
 <body>
-<form method="get" action="clients">
-    <button type="submit">Назад</button>
-</form>
-<div><b>Добавить нового клиента</b></div>
-
-<div>
+<div class="topnav">
+    <a href="mainMenu"> <i class="fa fa-fw fa-home fa-2x"></i> Главная</a>
+    <a href="masters"> <i class="fas fa-user-tie fa-2x"></i> Персонал</a>
+    <a href="menuClients"> <i class="fas fa-users fa-2x"></i> Клиенты</a>
+    <a href="menuRequests"> <i class="fas fa-wrench fa-2x"></i> Заявки</a>
+    <a href="menuFinance"> <i class="fas fa-dollar-sign fa-2x"></i> Финансы</a>
+    <a href="menuMaterial"> <i class="fas fa-box-open fa-2x"></i> Склад</a>
+</div>
+    <form method="get" action="clients">
+        <button class="back" type="submit"><i class="fas fa-arrow-left fa-2x"></i></button>
+    </form>
+    <h1 style="margin-top: -40px">Регистрация клиента</h1>
     <form method="get" action="registerClient">
         <table>
             <tr>
-                <th>ФИО</th>
-                <th><input type="text" name="name"/></th>
+                <td class="grey">ФИО <input type="text" name="name"/></td>
             </tr>
-
             <tr>
-                <th>Телефон</th>
-                <th><input type="text" name="phone"/></th>
+                <td class="grey">Телефон <input class="mid" type="text" name="phone"/></td>
             </tr>
-
             <tr>
-                <th>Тип переговорного устройства</th>
-                <th>
+                <td class="grey">Тип переговорного устройства
                     <select id="deviceType" name="deviceType">
                         <option value="A-1">A-1</option>
                         <option value="A-2">A-2</option>
                         <option value="V-1">V-1</option>
                         <option value="V-2">V-2</option>
                     </select>
-                </th>
+                </td>
             </tr>
-
             <tr>
-                <th>Адрес</th>
-                <th><input type="text" name="streetName" placeholder="Улица"/></th>
-                <th><input type="number" name="house" placeholder="Дом"/></th>
-                <th><input type="number" name="entrance" placeholder="Подъезд"/></th>
-                <th><input type="number" name="apartment" placeholder="Квартира"/></th>
+                <td class="grey">Адрес <input type="text" name="streetName" placeholder="Улица"/> <input type="number" name="house" placeholder="Дом"/> <input type="number" name="apartment" placeholder="Квартира"/> <input type="number" name="entrance" placeholder="Подъезд"/></td>
             </tr>
-
             <tr>
-                <th>Тариф</th>
-                <th><input type="number" name="tariffID" placeholder="id тарифа"/></th>
+                <td class="grey">Тариф <input type="number" name="tariffID" placeholder="id тарифа"/></td>
             </tr>
-
             <tr>
-                <th>Мастер</th>
-                <th><input type="number" name="masterID" placeholder="id мастера"/></th>
+                <td class="grey">Мастер <input type="number" name="masterID" placeholder="id мастера"/></td>
             </tr>
-
             <tr>
-                <th>Дата заключения договора</th>
-                <th><input type="text" name="contractDate" placeholder="дд-мм-гггг"/></th>
+                <td class="grey">Дата заключения договора <input class="short" type="text" name="contractDate" placeholder="дд-мм-гггг"/></td>
+            </tr>
+            <tr>
+                <td class="grey"><button class="add" type="submit">Добавить нового клиента</button></td>
             </tr>
         </table>
-        <button type="submit">Добавить клиента</button>
     </form>
-</div>
-
 </body>
 </html>

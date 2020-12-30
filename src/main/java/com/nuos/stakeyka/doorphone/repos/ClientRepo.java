@@ -22,4 +22,7 @@ public interface ClientRepo extends CrudRepository<Client, Integer> {
     Boolean existsByAddressAndApartment(Address address, Integer apartment);
     Boolean existsByStatusAndMaster(Boolean status, Master master);
 
+    @Query(value = "SELECT sum(balance) FROM Client where balance<0")
+    Iterable<Client> findAllByAddress(Address address);
+
 }

@@ -1,16 +1,25 @@
 package com.nuos.stakeyka.doorphone.controller;
 
+import com.lowagie.text.Document;
+import com.lowagie.text.pdf.PdfWriter;
 import com.nuos.stakeyka.doorphone.domain.Client;
 import com.nuos.stakeyka.doorphone.domain.Connection;
 import com.nuos.stakeyka.doorphone.domain.Service;
 import com.nuos.stakeyka.doorphone.repos.ClientRepo;
 import com.nuos.stakeyka.doorphone.repos.ConnectionRepo;
 import com.nuos.stakeyka.doorphone.repos.ServiceRepo;
+import com.nuos.stakeyka.doorphone.util.PdfDocumentCreator;
 import com.nuos.stakeyka.doorphone.util.Util;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.Map;
 
@@ -135,6 +144,27 @@ public class RequestController {
             connectionRepo.save(connection);
         }
         return connections(model);
+    }
+
+    @PostMapping("pdfServices")
+    public void pdfServices(HttpServletResponse response){
+        try {
+            File pdfFile = new File("заявки"+".pdf");
+            writePdf(pdfFile);
+            InputStream is = new FileInputStream(pdfFile);
+            org.apache.commons.io.IOUtils.copy(is, response.getOutputStream());
+            response.flushBuffer();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writePdf(File pdfFile) throws Exception {
+        Document document = new Document();
+        PdfWriter.getInstance(document, new FileOutputStream(pdfFile));
+        document.open();
+        PdfDocumentCreator.buildPdfDocument(serviceRepo.findAll(), document);
+        document.close();
     }
 
 }

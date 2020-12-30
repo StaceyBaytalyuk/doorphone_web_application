@@ -1,18 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Склад</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="styles/css/all.css" rel="stylesheet">
+</head>
 <body>
-<b>Управление складом</b>
-<form method="get" action="mainMenu">
-    <button type="submit">Назад</button>
-</form>
-
-<form method="get" action="materials">
-    <button type="submit">Склад</button>
-</form>
-<form method="get" action="materialBuy">
-    <button type="submit">Закупка материалов</button>
-</form>
-<form method="get" action="materialUse">
-    <button type="submit">Использование материалов</button>
-</form>
+<div class="topnav">
+    <a href="mainMenu"> <i class="fa fa-fw fa-home fa-2x"></i> Главная</a>
+    <a href="masters"> <i class="fas fa-user-tie fa-2x"></i> Персонал</a>
+    <a href="menuClients"> <i class="fas fa-users fa-2x"></i> Клиенты</a>
+    <a href="menuRequests"> <i class="fas fa-wrench fa-2x"></i> Заявки</a>
+    <a href="menuFinance"> <i class="fas fa-dollar-sign fa-2x"></i> Финансы</a>
+    <a href="menuMaterial"> <i class="fas fa-box-open fa-2x"></i> Склад</a>
+</div>
+<h1>Управление складом</h1>
+<div align="center">
+    <div class="row">
+        <form method="get" action="materials">
+            <button class="menu1 big" type="submit">Материалы в наличии</button>
+        </form>
+    </div>
+    <div class="row">
+        <form method="get" action="materialBuy">
+            <button class="menu2 big" type="submit">Закупка материалов</button>
+        </form>
+    </div>
+    <div class="row">
+        <form method="get" action="materialUse">
+            <button class="menu3 big" type="submit">Использование материалов</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

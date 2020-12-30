@@ -36,7 +36,7 @@ public class Address {
     @Override
     public String toString() {
         return  "id=" + id +
-                " " + street +
+                " " + street.getName() +
                 " " + house +
                 " " + entrance;
     }

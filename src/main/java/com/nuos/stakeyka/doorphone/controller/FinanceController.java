@@ -74,8 +74,11 @@ public class FinanceController {
         Iterable<Client> allClients = clientRepo.findAll();
         for (Client client : allClients) {
             Fee fee = new Fee(client, LocalDate.now());
-            feeRepo.save(fee);
+            if ( client.getBalance() >= client.getTariff().getPrice() ) {
+                fee.setStatus(true);
+            }
             client.updateBalance(-client.getTariff().getPrice());
+            feeRepo.save(fee);
             clientRepo.save(client);
         }
         disconnectDebtors(allClients); // если задолженность 4 месяца - заявка на отключение
@@ -113,7 +116,7 @@ public class FinanceController {
             client.updateBalance(sum); // зачислили
             clientRepo.save(client);
 
-            int money = sum; // пытаемся снять деньги если есть долги
+            int money = client.getBalance(); // пытаемся снять деньги если есть долги
             Iterable<Fee> unpaidFees = feeRepo.findAllByClientAndStatus(client, false);
             for (Fee fee : unpaidFees) {
                 if ( money >= fee.getTariff().getPrice() ) {

@@ -1,15 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Клиенты</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="styles/css/all.css" rel="stylesheet">
+</head>
 <body>
-<b>Работа с клиентами</b>
-<form method="get" action="mainMenu">
-    <button type="submit">Назад</button>
-</form>
-
-<form method="get" action="clients">
-    <button type="submit">Клиенты</button>
-</form>
-<form method="get" action="address">
-    <button type="submit">Адреса</button>
-</form>
+<div class="topnav">
+    <a href="mainMenu"> <i class="fa fa-fw fa-home fa-2x"></i> Главная</a>
+    <a href="masters"> <i class="fas fa-user-tie fa-2x"></i> Персонал</a>
+    <a href="menuClients"> <i class="fas fa-users fa-2x"></i> Клиенты</a>
+    <a href="menuRequests"> <i class="fas fa-wrench fa-2x"></i> Заявки</a>
+    <a href="menuFinance"> <i class="fas fa-dollar-sign fa-2x"></i> Финансы</a>
+    <a href="menuMaterial"> <i class="fas fa-box-open fa-2x"></i> Склад</a>
+</div>
+<h1>Работа с клиентами</h1>
+<div align="center">
+    <div class="row">
+        <form method="get" action="clients">
+            <button class="menu1 big" type="submit">Клиенты</button>
+        </form>
+    </div>
+    <div class="row">
+        <form method="get" action="address">
+            <button class="menu2 big" type="submit">Адреса</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

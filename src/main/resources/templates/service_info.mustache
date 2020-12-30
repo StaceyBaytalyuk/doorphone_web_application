@@ -1,5 +1,8 @@
 <html>
 <body>
+<form method="get" action="mainMenu">
+    <button type="submit">На главную</button>
+</form>
 
 <form method="get" action="services">
     <input type="submit" value="Назад">
@@ -11,7 +14,7 @@
     <form method="post" action="editService">
         <div>
             <b>ID</b>
-            <input type='number' name='serviceID' value={{id}} readonly/>
+            <input type='number' name='id' value={{id}} readonly/>
         </div>
 
         <div>

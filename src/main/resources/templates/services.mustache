@@ -1,42 +1,50 @@
-<html>
-<style>
-    table {
-        border-collapse: collapse;
-    }
-
-    table, td, th {
-        border: 2px solid #999;
-        padding: 5px;
-    }
-</style>
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Ремонты</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="styles/css/all.css" rel="stylesheet">
+</head>
 <body>
-<form method="get" action="menuRequests">
-    <input type="submit" value="Назад">
-</form>
-<b>Ремонты</b>
-<div>
+<div class="topnav">
+    <a href="mainMenu"> <i class="fa fa-fw fa-home fa-2x"></i> Главная</a>
+    <a href="masters"> <i class="fas fa-user-tie fa-2x"></i> Персонал</a>
+    <a href="menuClients"> <i class="fas fa-users fa-2x"></i> Клиенты</a>
+    <a href="menuRequests"> <i class="fas fa-wrench fa-2x"></i> Заявки</a>
+    <a href="menuFinance"> <i class="fas fa-dollar-sign fa-2x"></i> Финансы</a>
+    <a href="menuMaterial"> <i class="fas fa-box-open fa-2x"></i> Склад</a>
+</div>
+
+<div class="row">
+    <form method="post" action="pdfServices">
+        <button type="submit">Отчёт</button>
+    </form>
+</div>
+
+<div class="row">
     <form method="post" action="addService">
-        <button type="submit">Добавить заявку</button>
-        <input type="number" name="clientID" placeholder="id клиента"/>
-        <input type="text" name="commentClient" placeholder="Комментарий клиента"/>
+        <button class="add" type="submit"><i class="fas fa-plus fa-lg"></i> Добавить заявку</button>
+        <input class="broad" type="text" name="commentClient" placeholder="Комментарий клиента"/>
+        <input class="broad" type="number" name="clientID" placeholder="id клиента"/>
     </form>
 </div>
 
 {{#message}}
-    <div><span>{{message}}</span></div>
+<div><p class="msg">{{message}}</p></div>
 {{/message}}
 
-<b>Список заявок на ремонт</b>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Статус</th>
-        <th>Дата создания</th>
-        <th>ID клиента</th>
-        <th>Полная информация</th>
-    </tr>
-    {{#services}}
+<div>
+    <h1>Ремонты</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Статус</th>
+            <th>Дата создания</th>
+            <th>ID клиента</th>
+            <th>info</th>
+        </tr>
+        {{#services}}
         <tr>
             <td>{{id}}</td>
             <td>{{status}}</td>
@@ -45,12 +53,13 @@
 
             <td>
                 <form method="get" action="infoService">
-                <button type="submit">info</button>
-                <input type='hidden' name='id' value={{id}} />
+                    <button class="edit" type="submit"><i class="fas fa-pen fa-lg"></i></button>
+                    <input type='hidden' name='id' value={{id}} />
                 </form>
             </td>
         </tr>
-    {{/services}}
-</table>
+        {{/services}}
+    </table>
+</div>
 </body>
 </html>

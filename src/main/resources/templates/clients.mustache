@@ -1,55 +1,54 @@
-<html>
-<style>
-    table {
-        border-collapse: collapse;
-    }
-
-    table, td, th {
-        border: 2px solid #999;
-        padding: 5px;
-    }
-</style>
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Клиенты</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="styles/css/all.css" rel="stylesheet">
+</head>
 <body>
-<b>Клиенты</b>
-<form method="get" action="menuClients">
-    <button type="submit">Назад</button>
-</form>
-<div>
-    <form method="get" action="addClient">
-        <button type="submit">Добавить клиента</button>
-    </form>
+<div class="topnav">
+    <a href="mainMenu"> <i class="fa fa-fw fa-home fa-2x"></i> Главная</a>
+<a href="masters"> <i class="fas fa-user-tie fa-2x"></i> Персонал</a>
+<a href="menuClients"> <i class="fas fa-users fa-2x"></i> Клиенты</a>
+    <a href="menuRequests"> <i class="fas fa-wrench fa-2x"></i> Заявки</a>
+    <a href="menuFinance"> <i class="fas fa-dollar-sign fa-2x"></i> Финансы</a>
+    <a href="menuMaterial"> <i class="fas fa-box-open fa-2x"></i> Склад</a>
 </div>
 
-<div>
+<div class="row">
     <form method="get" action="searchClients">
-        <button type="submit">Поиск</button>
+        <button class="edit" type="submit"><i class="fas fa-search fa-lg"></i> Найти клиента</button>
     </form>
 </div>
-
-{{#message}}
-    <div><span>{{message}}</span></div>
-{{/message}}
-
-<b>Список клиентов</b>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>ФИО</th>
-        <th>Полная информация о клиенте</th>
-    </tr>
-    {{#clients}}
+<div class="row">
+    <form method="get" action="addClient">
+        <button class="add" type="submit"><i class="fas fa-plus fa-lg"></i>  Новый клиент</button>
+    </form>
+</div>
+<div>
+    <h1 style="margin-top: -90px">Клиенты</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>ФИО</th>
+            <th>Адрес</th>
+            <th>info</th>
+        </tr>
+        {{#clients}}
         <tr>
             <td>{{id}}</td>
             <td>{{name}}</td>
+            <td>{{address.street.name}} {{address.house}}, {{address.entrance}} подъезд, кв. {{apartment}}</td>
             <td>
                 <form method="get" action="infoClient">
-                <button type="submit">info</button>
-                <input type='hidden' name='id' value={{id}} />
+                    <button class="edit" type="submit"><i class="fas fa-pen fa-lg"></i></button>
+                    <input type='hidden' name='id' value={{id}} />
                 </form>
             </td>
         </tr>
-    {{/clients}}
-</table>
+        {{/clients}}
+    </table>
+</div>
 </body>
 </html>

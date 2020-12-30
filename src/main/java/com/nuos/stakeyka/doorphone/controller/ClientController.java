@@ -145,6 +145,8 @@ public class ClientController {
             Iterable<Client> clients = clientRepo.findAllByAddressAndBalanceLessThan(address, 0);
             if ( clients.iterator().hasNext() ) {
                 model.put("clients", clients);
+//                Integer sum = clientRepo.
+//                model.put("message", "Общая сумма долга по всем клиентам: "+);
             } else {
                 model.put("message", "Нет должников");
             }

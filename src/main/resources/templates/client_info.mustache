@@ -1,81 +1,80 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Инфо клиента</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link href="styles/css/all.css" rel="stylesheet">
+</head>
 <body>
+<div class="topnav">
+    <a href="mainMenu"> <i class="fa fa-fw fa-home fa-2x"></i> Главная</a>
+    <a href="masters"> <i class="fas fa-user-tie fa-2x"></i> Персонал</a>
+    <a href="menuClients"> <i class="fas fa-users fa-2x"></i> Клиенты</a>
+    <a href="menuRequests"> <i class="fas fa-wrench fa-2x"></i> Заявки</a>
+    <a href="menuFinance"> <i class="fas fa-dollar-sign fa-2x"></i> Финансы</a>
+    <a href="menuMaterial"> <i class="fas fa-box-open fa-2x"></i> Склад</a>
+</div>
+
 <form method="get" action="clients">
-    <input type="submit" value="Назад">
+    <button class="back" type="submit"><i class="fas fa-arrow-left fa-2x"></i></button>
 </form>
-<div><b>Клиент</b></div>
+<h1 style="margin-top: -40px">Инфо клиента</h1>
 {{#client}}
-    <form method="post" action="editClient">
-        <div>
-            <b>ID</b>
-            <input type='number' name='clientID' value={{id}} readonly/>
-        </div>
+    <table>
 
-        <div>
-            <b>ФИО</b>
-            <span><input type="text" name="name" value="{{name}}"/></span>
-        </div>
+        <form method="post" action="editClient">
+        <tr>
+            <td class="grey">ID <input class="short" type='number' name='clientID' value={{id}} readonly/>
+                ФИО <input type="text" name="name" value="{{name}}"/> Телефон <input class="mid" type="text" name="phone" value="{{phone}}"/></td>
+        </tr>
+        <tr>
+            <td class="grey">Тип переговорного устройства
+                <select id="deviceType" name="deviceType">
+                    <option selected="{{deviceType}}">{{deviceType}}</option>
+                    <option value="A-1">A-1</option>
+                    <option value="A-2">A-2</option>
+                    <option value="V-1">V-1</option>
+                    <option value="V-2">V-2</option>
+                </select>
+                Подключен
+                <select id="statusString" name="statusString">
+                    <option selected="{{status}}">{{status}}</option>
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="grey">Адрес <input type="text" name="streetName" value="{{address.street.name}}" placeholder="Улица"/> <input type="number" name="house" value="{{address.house}}" placeholder="Дом"/> <input type="number" name="apartment" value="{{apartment}}" placeholder="Квартира"/> <input type="number" name="entrance" value="{{address.entrance}}" placeholder="Подъезд"/></td>
+        </tr>
+        <tr>
+            <td class="grey">Тариф: <a>{{tariff.price}} грн.</a> <input type="number" name="tariffID" value="{{tariff.id}}" placeholder="id тарифа"/> Баланс <input class="short" type='text' name='balance' value="{{balance}} грн" readonly/>
+            </td>
+        </tr>
+        <tr>
+            <td class="grey">Мастер: <a>{{master.name}}</a> <input type="number" name="masterID" value="{{master.id}}" placeholder="id мастера"/></td>
+        </tr>
+        <tr>
+            <td class="grey">Дата заключения договора <input class="short" type="text" name="contractDate" value="{{contractDate}}" placeholder="дд-мм-гггг"/></td>
+        </tr>
 
-        <div>
-            <b>Телефон</b>
-            <span><input type="text" name="phone" value="{{phone}}"/></span>
-        </div>
+        <tr>
+            <td class="grey">
+            <button class="add" type="submit"><i class="fas fa-check"></i> Сохранить изменения</button>
+            </td>
+        </tr>
+        </form>
+        <tr>
+            <td class="grey">
+            <form method="get" action="infoClient">
+                <button class="delete" type="submit"><i class="fas fa-times"></i> Отменить изменения</button>
+                <input type='hidden' name='id' value={{id}} />
+            </form>
+            </td>
+        </tr>
 
-        <div>
-            <b>Баланс</b>
-            <input type='text' name='balance' value="{{balance}} грн" readonly/>
-        </div>
-
-        <div>
-            <b>Подключён</b>
-            <select id="statusString" name="statusString">
-                <option selected="{{status}}">{{status}}</option>
-                <option value="true">true</option>
-                <option value="false">false</option>
-            </select>
-        </div>
-
-        <div>
-            <b>Тип переговорного устройства</b>
-            <span>
-            <select id="deviceType" name="deviceType">
-                <option selected="{{deviceType}}">{{deviceType}}</option>
-                <option value="A-1">A-1</option>
-                <option value="A-2">A-2</option>
-                <option value="V-1">V-1</option>
-                <option value="V-2">V-2</option>
-            </select>
-        </span>
-        </div>
-
-        <div>
-            <b>Адрес</b>
-            <span> ул. </span>
-            <span><input type="text" name="streetName" value="{{address.street.name}}"/></span>
-            <span> дом </span>
-            <span><input type="number" name="house" value="{{address.house}}"/></span>
-            <span> подъезд </span>
-            <span><input type="number" name="entrance" value="{{address.entrance}}"/></span>
-            <span> кв. </span>
-            <span><input type="number" name="apartment" value="{{apartment}}"/></span>
-        </div>
-
-        <div>
-            <b>Тариф</b>
-            <span><input type="number" name="tariffID" value="{{tariff.id}}"/></span>
-        </div>
-
-        <div>
-            <b>Мастер</b>
-            <span><input type="number" name="masterID" value="{{master.id}}"/></span>
-        </div>
-
-        <div>
-            <b>Дата заключения договора</b>
-            <span><input type="text" name="contractDate" value="{{contractDate}}"/></span>
-        </div>
-        <button type="submit">Сохранить изменения</button>
-    </form>
+    </table>
 {{/client}}
 </body>
 </html>
