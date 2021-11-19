@@ -1,0 +1,241 @@
+body {
+    background-color: #3b3f42;
+    background-size: 100%;
+}
+
+body.home {
+    background: rgb(42,3,35);
+    background: linear-gradient(90deg, rgba(42,3,35,1) 0%, rgba(73,47,107,1) 27%, rgba(34,222,217,1) 100%);
+}
+
+h1.home {
+    color: white;
+    font-size: 50px;
+    /* сверху | справа | снизу | слева */
+    margin: 110px 50px -90px 50px;
+}
+
+/* цвета */
+h2 {
+    /* фон */
+    color: #3b3f42;
+
+    /* h1 */
+    color: #bcb529;
+
+    /* заголов табл */
+    color: #465b40;
+    /* тело табл */
+    color: #2b2b2b;
+    /* текст кнопк и загол табл*/
+    color: #c0c0c0;
+    /* обычн текст*/
+    color: #a9b6c6;
+
+    /* navbar */
+    color: #538643;
+    color: #b8d75e;
+
+    /* кнопки */
+    color: #579242;
+    color: #ac453c;
+    color: #485bb9;
+
+    /* назад */
+    color: #67686a;
+    color: #9f9f9f;
+
+    /* меню */
+    color: #764489;
+    color: #485bb9;
+    color: #189086;
+
+    /* input */
+    color: #724b46;
+    color: #d9a343;
+
+    /* ошбика */
+    color: #b15a2d;
+}
+
+h1 {
+    font-family: "Microsoft JhengHei UI Light";
+    text-align: center;
+    color: #bcb529;
+}
+
+p {
+    text-align: justify;
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: "Microsoft JhengHei UI Light";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+p.msg {
+    color: #b15a2d;
+}
+
+a {
+    font-family: "Microsoft JhengHei UI Light";
+    color: powderblue;
+}
+
+div {
+    margin: 60px;
+}
+
+div.row {
+    display: inline-block;
+    margin: 30px 0 -40px 20px;
+}
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+    font-size: 14px;
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+th, td:first-child {
+    background-color: #465b40;
+    color: #c0c0c0;
+    padding: 10px 20px;
+    font-weight: bolder;
+}
+
+td:first-child.grey {
+    background-color: #2b2b2b;
+}
+
+th, td {
+    alignment: center;
+    border-style: solid;
+    border-color: #2b2b2b;
+    padding: 5px;
+}
+
+td {
+    background: #2b2b2b;
+    color: #a9b6c6;
+    font-weight: bold;
+}
+
+th {
+    border-color: #2b2b2b;
+}
+th:first-child, td:first-child {
+    padding: 10px;
+}
+
+button {
+    background-color: #67686a /*#4CAF50*/;
+    border: #c0c0c0;
+    color: #c0c0c0;
+    padding: 10px 20px;
+    border-radius: 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+button.add {
+    background-color: #579242;
+    padding: 10px;
+}
+
+.delete {
+    background-color: #ac453c;
+}
+
+.edit {
+    background-color: #485bb9;
+    padding: 10px;
+}
+
+button.big {
+    font-size: x-large;
+    width: 220px;
+    height: 100px;
+}
+
+.menu1 {
+    background-color: #764489;
+}
+
+.menu2 {
+    background-color: #485bb9;
+}
+
+.menu3 {
+    background-color: #189086;
+}
+
+.back {
+    margin-bottom: -30px;
+    margin-top: 10px;
+}
+
+form {
+    margin: 10px;
+}
+
+select, textarea, input[type=text], [type=number] {
+    background-color: #583834;
+    color: #ca9029;
+    width: 200px;
+    border: thin #9f9f9f;
+    margin-right: 20px;
+}
+
+input[type=text].broad, [type=number].broad {
+    font-size: medium;
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+select {
+    width: 50px;
+}
+
+[type=number] {
+    width: 70px;
+}
+
+input[type=text].short {
+    width: 70px;
+}
+
+input[type=text].mid {
+    width: 100px;
+}
+
+/* navigation bar */
+div.topnav {
+    /*background-color: #333;*/
+    background-color: #538643;
+    overflow: hidden;
+    margin: -8px;
+}
+
+.topnav a {
+    float: left;
+    /*color: #f2f2f2;*/
+    color: #b8d75e;
+    text-align: center;
+    padding: 14px 17px;
+    text-decoration: none;
+    font-size: 21px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+}
+
+.topnav a:hover {
+    background-color: #a6c162;
+    color: #538643;
+}
